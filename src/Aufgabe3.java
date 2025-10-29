@@ -44,6 +44,18 @@ public class Aufgabe3 {
         rez[0] = t;
         return rez;
     }
+    // imparțire la o cif
+    static int[] impartire(int[] a, int cifra) {
+        int n = a.length;
+        int[] rez = new int[n];
+        int rest = 0;
+        for (int i = 0; i < n; i++) {
+            int val = rest * 10 + a[i];
+            rez[i] = val / cifra;
+            rest = val % cifra;
+        }
+        return rez;
+    }
 
     public static void main(String[] args) {
         int[] a = {2, 3, 6};
@@ -59,5 +71,7 @@ public class Aufgabe3 {
         System.out.println("Scădere:    " + Arrays.toString(diferenta));
         int[] produs = inmultire(a, 2);  // 236 × 2 = 472
         System.out.println("Înmulțire:  " + Arrays.toString(produs));
+        int[] cat = impartire(a, 2);     // 236 ÷ 2 = 118
+        System.out.println("Împărțire:  " + Arrays.toString(cat));
     }
 }
