@@ -1,13 +1,29 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.util.Arrays;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+public class Aufgabe3 {
+
+    // adunare (a și b asame lenght)
+    static int[] adunare(int[] a, int[] b) {
+        int n = a.length;
+        int[] rez = new int[n + 1];
+        int t = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            int s = a[i] + b[i] + t;
+            rez[i + 1] = s % 10;
+            t = s / 10;
+        }
+        rez[0] = t;
+        return rez;
+    }
+
+    public static void main(String[] args) {
+        int[] a = {2, 3, 6};
+        int[] b = {1, 2, 3};
+
+        System.out.println(" a = " + Arrays.toString(a));
+        System.out.println(" b = " + Arrays.toString(b));
+
+        int[] suma = adunare(a, b);      // 236 + 123 = 359
+        System.out.println("Adunare:    " + Arrays.toString(suma));
+    }
 }
