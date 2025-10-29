@@ -30,6 +30,21 @@ public class Aufgabe3 {
         }
         return rez;
     }
+
+    // innmulțire cu o cif
+    static int[] inmultire(int[] a, int cifra) {
+        int n = a.length;
+        int[] rez = new int[n + 1];
+        int t = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            int p = a[i] * cifra + t;
+            rez[i + 1] = p % 10;
+            t = p / 10;
+        }
+        rez[0] = t;
+        return rez;
+    }
+
     public static void main(String[] args) {
         int[] a = {2, 3, 6};
         int[] b = {1, 2, 3};
@@ -37,9 +52,12 @@ public class Aufgabe3 {
         System.out.println(" a = " + Arrays.toString(a));
         System.out.println(" b = " + Arrays.toString(b));
 
+
         int[] suma = adunare(a, b);      // 236 + 123 = 359
         System.out.println("Adunare:    " + Arrays.toString(suma));
         int[] diferenta = scadere(a, b); // 236 - 123 = 113
         System.out.println("Scădere:    " + Arrays.toString(diferenta));
+        int[] produs = inmultire(a, 2);  // 236 × 2 = 472
+        System.out.println("Înmulțire:  " + Arrays.toString(produs));
     }
 }
