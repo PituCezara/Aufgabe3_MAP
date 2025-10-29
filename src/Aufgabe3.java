@@ -15,7 +15,21 @@ public class Aufgabe3 {
         rez[0] = t;
         return rez;
     }
-
+    // scădere (a ≥ b)
+    static int[] scadere(int[] a, int[] b) {
+        int n = a.length;
+        int[] rez = new int[n];
+        int imprumut = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            int x = a[i] - imprumut - b[i];
+            if (x < 0) {
+                x += 10;
+                imprumut = 1;
+            } else imprumut = 0;
+            rez[i] = x;
+        }
+        return rez;
+    }
     public static void main(String[] args) {
         int[] a = {2, 3, 6};
         int[] b = {1, 2, 3};
@@ -25,5 +39,7 @@ public class Aufgabe3 {
 
         int[] suma = adunare(a, b);      // 236 + 123 = 359
         System.out.println("Adunare:    " + Arrays.toString(suma));
+        int[] diferenta = scadere(a, b); // 236 - 123 = 113
+        System.out.println("Scădere:    " + Arrays.toString(diferenta));
     }
 }
